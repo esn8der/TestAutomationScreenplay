@@ -6,12 +6,13 @@ import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Click;
 import org.openqa.selenium.Keys;
-import java.util.Random;
+
+import java.security.SecureRandom;
 
 import static org.calidad.screenplay.test.automation.userinterfaces.UserPage.*;
 
 public class BancolombiaPage implements Interaction {
-    Random random = new Random();
+    SecureRandom random = new SecureRandom();;
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(Enter.theValue("bancolombia simulador credito de libre inversion").into(INPUT_TEXT).thenHit(Keys.RETURN));

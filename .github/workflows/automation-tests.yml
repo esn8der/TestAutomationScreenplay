@@ -1,0 +1,36 @@
+name: Automation Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [ opened, synchronize, reopened ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: 11
+
+      - name: Set up Gradle
+        run: |
+          sudo apt-get install -y gradle-8.1
+          sudo ln -sfn /usr/lib/gradle/8.1/bin/gradle /usr/bin/gradle
+
+      - name: Build and run tests
+        run: gradle clean test aggregate
+
+      - name: Upload Serenity reports
+        uses: actions/upload-artifact@v2
+        with:
+          name: Serenity-Reports
+          path: target/site/serenity
+
