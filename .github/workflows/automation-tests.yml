@@ -29,4 +29,3 @@ jobs:
         with:
           name: Serenity-Reports
           path: target/site/serenity
-
