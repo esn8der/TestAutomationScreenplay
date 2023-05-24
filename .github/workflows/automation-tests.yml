@@ -21,11 +21,6 @@ jobs:
           java-version: 11
           distribution: 'adopt'
 
-      - name: Set up Gradle
-        run: |
-          sudo apt-get install -y gradle-8.1
-          sudo ln -sfn /usr/lib/gradle/8.1/bin/gradle /usr/bin/gradle
-
       - name: Build and run tests
         run: gradle clean test aggregate
 
