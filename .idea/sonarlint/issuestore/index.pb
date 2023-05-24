@@ -15,5 +15,3 @@ lsrc/test/java/org/calidad/screenplay/test/automation/stepdefinitions/SimulateBa
 Qsrc/main/java/org/calidad/screenplay/test/automation/userinterfaces/UserPage.java,c\c\ccdaadef2bc89222d6e602c07ff0d23cba6d1059
 ~
 Nsrc/main/java/org/calidad/screenplay/test/automation/questions/Validation.java,2\a\2af98ec1f1779d5c3da3042acee270596c05c2a5
-<
-build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35

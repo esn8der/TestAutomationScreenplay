@@ -11,8 +11,6 @@ v
 Fsrc/main/java/org/calidad/screenplay/test/automation/task/OpenThe.java,7\e\7e3db534746d4dbeb694645b36d52216bcf801f9
 ç
 ]src/test/java/org/calidad/screenplay/test/automation/runners/TestSimulateBancolombiaPage.java,5\1\51b4275158079beaa4abecaf8681f99372c18145
-<
-build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
 ú
 lsrc/test/java/org/calidad/screenplay/test/automation/stepdefinitions/SimulateBancolombiaStepDefinitions.java,4\2\4265129546db460f3b03b64ef9f1cec424529621
 ~
