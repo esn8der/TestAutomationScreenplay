@@ -28,7 +28,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Build-Tes-Reports
-          path: /home/runner/work/TestAutomationScreenplay/TestAutomationScreenplay/build/reports/tests/test
+          path: build/reports/tests/test
 
       - name: Upload Serenity reports
         uses: actions/upload-artifact@v3
