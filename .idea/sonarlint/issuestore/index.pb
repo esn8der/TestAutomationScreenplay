@@ -1,6 +1,4 @@
 
-n
->src/main/java/org/calidad/screenplay/test/automation/Main.java,2\2\2203b953e703b42562a2bd6fd0db02d035395e85
 y
 Isrc/main/java/org/calidad/screenplay/test/automation/utils/Constants.java,0\c\0c935e94dc25ab0f05d7cda72cd0c98c1f60d8f1
 v
