@@ -28,13 +28,13 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Build-Tes-Reports
-          path: build/reports/tests/test
+          path: build/reports/tests/test/
 
       - name: Upload Serenity reports
         uses: actions/upload-artifact@v3
         with:
           name: Serenity-Reports
-          path: target/site/serenity
+          path: file:///home/runner/work/TestAutomationScreenplay/TestAutomationScreenplay/target/site/serenity/
 
       - name: Copy test report to artifacts
         run: cp -r target/site/serenity ${{ github.workspace }}/test-report
