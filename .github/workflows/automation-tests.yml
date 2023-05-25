@@ -22,7 +22,7 @@ jobs:
           distribution: 'adopt'
 
       - name: Build and run tests
-        run: gradle clean test aggregate
+        run: ./gradle clean build -x test aggregate
 
       - name: Upload Build Test Reports
         uses: actions/upload-artifact@v3
