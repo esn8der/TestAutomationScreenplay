@@ -8,7 +8,7 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  install_dependencies:
+  build_and_tests:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,6 +20,9 @@ jobs:
         with:
           java-version: 11
           distribution: 'adopt'
+
+      - name: Install dependencies
+        run: gradle clean assemble
 
       - name: Cache Gradle packages
         uses: actions/cache@v3
@@ -28,23 +31,6 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
-
-      - name: Install dependencies
-        run: gradle clean assemble
-
-  run_tests:
-    needs: install_dependencies
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Java
-        uses: actions/setup-java@v3
-        with:
-          java-version: 11
-          distribution: 'adopt'
 
       - name: Run tests
         run: gradle test aggregate
@@ -60,3 +46,4 @@ jobs:
         with:
           name: Serenity-Reports
           path: target/site/serenity
+
