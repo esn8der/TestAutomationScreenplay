@@ -28,7 +28,7 @@ jobs:
         run: ./gradlew clean assemble
 
       - name: Run tests
-        run: ./gradlew test aggregate
+        run: ./gradlew test aggregate --continue
 
       - name: Upload Build Test Reports
         uses: actions/upload-artifact@v3
