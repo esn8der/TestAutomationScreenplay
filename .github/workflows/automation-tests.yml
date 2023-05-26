@@ -15,11 +15,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Java
+      - name: Set up Java and Gradle
         uses: actions/setup-java@v3
         with:
           java-version: 11
           distribution: 'adopt'
+          gradle-version: 8.1
 
       - name: Install dependencies
         run: gradle clean assemble
@@ -32,8 +33,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
+      - name: Give execute permission to Gradle
+        run: chmod +x ./gradlew
+
       - name: Run tests
-        run: gradle test aggregate
+        run: ./gradlew test aggregate
 
       - name: Upload Build Test Reports
         uses: actions/upload-artifact@v3
