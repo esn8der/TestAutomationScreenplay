@@ -20,21 +20,12 @@ jobs:
         with:
           java-version: 11
           distribution: 'adopt'
-          gradle-version: 8.1
-
-      - name: Install dependencies
-        run: gradle clean assemble
-
-      - name: Cache Gradle packages
-        uses: actions/cache@v3
-        with:
-          path: ~/.gradle/caches
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
 
       - name: Give execute permission to Gradle
         run: chmod +x ./gradlew
+
+      - name: Install dependencies
+        run: ./gradlew clean assemble
 
       - name: Run tests
         run: ./gradlew test aggregate
