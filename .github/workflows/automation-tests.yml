@@ -1,0 +1,45 @@
+name: Automation Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build_and_tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Java and Gradle
+        uses: actions/setup-java@v3
+        with:
+          java-version: 11
+          distribution: 'adopt'
+
+      - name: Give execute permission to Gradle
+        run: chmod +x ./gradlew
+
+      - name: Install dependencies
+        run: ./gradlew clean assemble
+
+      - name: Run tests
+        run: ./gradlew test aggregate
+        continue-on-error: true
+
+      - name: Upload Build Test Reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: Build-Test-Reports
+          path: build/reports/tests/test
+
+      - name: Upload Serenity reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: Serenity-Reports
+          path: target/site/serenity
+
